@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Todo from './Todo';
 
-function AllTodos(props) {
-  const { todos } = props;
+class AllTodos extends Component {
+  todosExist = () => {
+    return this.props.todos.length ? true : false;
+  };
 
-  return (
-    <div className='container'>
-      <ul style={ulStyle}>
-        {todos.map(({ todoTitle }, i) => (
-          <Todo title={todoTitle} key={i} />
-        ))}
-      </ul>
-    </div>
-  );
+  render() {
+    const { todos, deleteTodo } = this.props;
+
+    return (
+      <div
+        className='container'
+        style={this.todosExist() ? {} : { display: 'none' }}
+      >
+        <ul style={ulStyle}>
+          {todos.map(({ todoTitle }, i) => (
+            <Todo title={todoTitle} deleteTodo={deleteTodo} key={i} />
+          ))}
+        </ul>
+      </div>
+    );
+  }
 }
 
 const ulStyle = {

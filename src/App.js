@@ -13,6 +13,24 @@ class App extends Component {
     this.getTodos();
   }
 
+  deleteTodo = e => {
+    if (e.target === e.currentTarget.querySelector('.deleteBtn')) {
+      localStorage.removeItem('todos');
+
+      const title = e.currentTarget.querySelector('h3').innerText;
+
+      this.setState({
+        todos: [
+          ...this.state.todos.filter(({ todoTitle }) => todoTitle !== title),
+        ],
+      });
+
+      setTimeout(() => {
+        localStorage.setItem('todos', JSON.stringify(this.state.todos));
+      }, 100);
+    }
+  };
+
   getTodos = () => {
     let storedTodos;
 
@@ -49,7 +67,7 @@ class App extends Component {
 
     setTimeout(() => {
       localStorage.setItem('todos', JSON.stringify(this.state.todos));
-    }, 5000);
+    }, 100);
 
     e.target.reset();
   };
@@ -58,7 +76,11 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header title='Todo List' />
-        <TodoContainer addTodo={this.addTodo} todos={this.state.todos} />
+        <TodoContainer
+          addTodo={this.addTodo}
+          todos={this.state.todos}
+          deleteTodo={this.deleteTodo}
+        />
       </React.Fragment>
     );
   }

@@ -1,15 +1,23 @@
 import React from 'react';
 
-function Todo(props) {
-  const { title } = props;
-
+function Todo({ title, deleteTodo }) {
   return (
-    <li style={liStyle}>
+    <li style={liStyle} onClick={deleteTodo}>
       <h3>{title}</h3>
-      <i>x</i>
+      <div className='deleteBtn' style={deleteBtn}>
+        x
+      </div>
     </li>
   );
 }
+
+const deleteBtn = {
+  width: '20px',
+  height: '20px',
+  textAlign: 'center',
+  cursor: 'pointer',
+  borderRadius: '50%',
+};
 
 const liStyle = {
   display: 'flex',
@@ -17,6 +25,8 @@ const liStyle = {
   alignItems: 'center',
   width: '100%',
   padding: '5px 30px',
+  margin: '5px 0',
+  color: '#fff',
 };
 
 export default Todo;
