@@ -1,0 +1,100 @@
+/* colors */
+
+:root {
+  /* --primary-color: rgb(89, 142, 177); */
+  --primary-color: #1a1d24;
+  --secondary-color: #e2b234;
+  --background: #222831;
+  --shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* global */
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  transition: all 200ms ease-in-out;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--background);
+}
+
+header {
+  width: 100%;
+  height: 60px;
+  background-color: var(--primary-color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+/* add todo and todo container */
+
+.todo-container {
+  width: 40%;
+  margin: 100px auto 0;
+}
+
+/* add todo */
+
+.add-todo {
+  width: 100%;
+  height: fit-content;
+  background-color: var(--primary-color);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.add-todo form {
+  margin-top: 15px;
+}
+
+.add-todo input {
+  width: 80%;
+  height: 50px;
+  border-radius: 25px;
+  padding: 0 20px;
+  margin-right: 20px;
+  font-size: 18px;
+  background-color: #13161b;
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.add-todo button {
+  width: 15%;
+  height: 50px;
+  border-radius: 25px;
+  color: #000;
+  background-color: var(--secondary-color);
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-todo button:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+/* todos */
+
+.container {
+  width: 100%;
+  background-color: var(--primary-color);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
